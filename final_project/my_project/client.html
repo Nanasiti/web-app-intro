@@ -4,27 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>データ管理アプリ2</title>
+    <title>スタレ遺物管理</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-    <h1>データ管理</h1>
+    <h1>キャラクター装備入力フォーム</h1>
 
-    <h2>データ一覧</h2>
-    <ul id="data-list">
-        <!-- データはここに表示されます -->
-    </ul>
+    <div>
+    <label>キャラクター名: <input type="text" id="charName"></label><br>
+    <label>装備1名: <input type="text" id="equip1"></label><br>
+    <label>装備2名: <input type="text" id="equip2"></label>
+  </div>
 
-    <h2>データ追加</h2>
-    <form id="add-data-form">
-        <label for="value1">値1:</label>
-        <input type="text" id="value1" name="value1" required><br>
-        <label for="value2">値2:</label>
-        <input type="text" id="value2" name="value2"><br>
-        <button type="submit">追加</button>
-    </form>
+  <div id="equipmentSection"></div>
+
+  <div>
+    <button onclick="saveData()">保存</button>
+    <select id="savedList" onchange="loadData()">
+      <option value="">-- 保存データを選択 --</option>
+    </select>
+  </div>
 
     <script src="script.js"></script>
 </body>
