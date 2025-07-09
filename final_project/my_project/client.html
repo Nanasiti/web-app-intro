@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>スタレ遺物管理</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小説プロット保存</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <h1>キャラクター装備入力フォーム</h1>
+  <h1>小説プロット保存ページ</h1>
 
-    <div>
-    <label>キャラクター名: <input type="text" id="charName"></label><br>
-    <label>装備1名: <input type="text" id="equip1"></label><br>
-    <label>装備2名: <input type="text" id="equip2"></label>
+  <div class="form-container">
+    <label>タイトル: <input type="text" id="title"></label>
+    <label>キャラクター: <textarea id="characters"></textarea></label>
+    <label>設定: <textarea id="setting"></textarea></label>
+    <label>本文: <textarea id="body"></textarea></label>
+    <label>タグ（カンマ区切り）: <input type="text" id="tags"></label>
+    <label>
+      完成済み: <input type="checkbox" id="completed">
+    </label>
+    <button onclick="savePlot()">保存</button>
   </div>
 
-  <div id="equipmentSection"></div>
-
-  <div>
-    <button onclick="saveData()">保存</button>
-    <select id="savedList" onchange="loadData()">
-      <option value="">-- 保存データを選択 --</option>
-    </select>
+  <div class="search-container">
+    <label>検索: <input type="text" id="search" placeholder="タイトル・キャラ・タグで検索" oninput="displaySavedPlots()"></label>
   </div>
 
-    <script src="script.js"></script>
+  <h2>保存されたプロット</h2>
+  <div id="savedPlots"></div>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
