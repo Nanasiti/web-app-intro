@@ -19,6 +19,7 @@ h1, h2 {
 label {
   display: block;
   margin-top: 10px;
+  font-weight: bold;
 }
 
 input[type="text"], textarea {
@@ -59,4 +60,8 @@ button:hover {
 
 .search-container {
   margin-bottom: 20px;
+}
+
+.search-container label {
+  font-weight: bold;
 }
