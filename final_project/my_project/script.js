@@ -10,6 +10,7 @@ function savePlot() {
   const body = document.getElementById("body").value;
   const tags = document.getElementById("tags").value;
   const completed = document.getElementById("completed").checked;
+  const date = new Date().toLocaleString();
 
   const plot = {
     title,
@@ -17,7 +18,8 @@ function savePlot() {
     setting,
     body,
     tags,
-    completed
+    completed,
+    date
   };
 
   localStorage.setItem(`plot_${title}`, JSON.stringify(plot));
@@ -55,7 +57,8 @@ function displaySavedPlots() {
         キャラクター: ${plot.characters}<br>
         設定: ${plot.setting}<br>
         本文: ${plot.body}<br>
-        タグ: ${plot.tags}<br>`;
+        タグ: ${plot.tags}<br>
+        最終更新: ${plot.date || '不明'}<br>`;
       div.appendChild(document.createTextNode(" 完成済み: "));
       div.appendChild(checkbox);
       div.appendChild(editBtn);
