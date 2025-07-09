@@ -29,10 +29,13 @@ input[type="text"], textarea {
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 5px;
+  resize: vertical;
+  transition: height 0.2s ease;
 }
 
 textarea {
-  height: 60px;
+  min-height: 60px;
+  overflow-y: hidden;
 }
 
 button {

@@ -1,3 +1,8 @@
+function autoResizeTextarea(element) {
+  element.style.height = 'auto';
+  element.style.height = (element.scrollHeight) + 'px';
+}
+
 function savePlot() {
   const title = document.getElementById("title").value;
   const characters = document.getElementById("characters").value;
@@ -68,6 +73,11 @@ function loadPlot(plot) {
   document.getElementById("body").value = plot.body;
   document.getElementById("tags").value = plot.tags || "";
   document.getElementById("completed").checked = plot.completed;
+
+  // Resize textareas
+  autoResizeTextarea(document.getElementById("characters"));
+  autoResizeTextarea(document.getElementById("setting"));
+  autoResizeTextarea(document.getElementById("body"));
 }
 
 function deletePlot(title) {
@@ -77,4 +87,12 @@ function deletePlot(title) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", displaySavedPlots);
+document.addEventListener("DOMContentLoaded", () => {
+  displaySavedPlots();
+
+  const textareas = document.querySelectorAll("textarea");
+  textareas.forEach(textarea => {
+    textarea.addEventListener("input", () => autoResizeTextarea(textarea));
+    autoResizeTextarea(textarea);
+  });
+});
